@@ -1,0 +1,121 @@
+#top-container {
+	background-color: #034885;
+	height: 15vh;
+}
+
+/* Attempts to keep the table roughly the same relative size across different screens up to a certain point */
+#dataTable {
+	font-size: 1vw;
+	height: 50vh;
+}
+
+#header {
+	position:relative; 
+	top: 2vh;
+}
+
+.next {
+	height: 5vh;
+	cursor: pointer;
+}
+
+.prev {
+	height: 5vh;
+	cursor: pointer;
+}
+
+#topPageNum {
+	display: none;
+}
+
+#bottomPageNum {
+	display: block;
+}
+
+#mainContainer {
+	background-color: #F6F8D1; 
+	height: 85vh;
+}
+
+/*Makes the first column wider so the country name doesn't get clipped too badly*/
+td:first-child {
+	width:10vw;
+}
+
+
+
+/*This transposes each row of the table to a block element to display better on smaller devices (less than 768) */
+@media 
+only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px)  {
+
+	#dataTable {
+		font-size: 16px;
+		height: 750vh;
+	}
+	
+	#mainContainer {
+		background-color: #F6F8D1; 
+		height: 800vh;
+}
+	
+	#topPageNum {
+		display: block;
+	}
+
+	#bottomPageNum {
+		display: none;
+	}
+
+	/* Force table to not be like tables anymore */
+	table, thead, tbody, th, td, tr { 
+		display: block; 
+	}
+	
+	/* Hide table headers (but not display: none;, for accessibility) */
+	th { 
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+	
+	tr { border: 1px solid #ccc; }
+	
+	td { 
+		/* Behave  like a "row" */
+		border: none;
+		border-bottom: 1px solid #eee; 
+		position: relative;
+		padding-left: 50%; 
+	}
+	
+	td:before { 
+		position: absolute;
+		top: 6px;
+		left: 6px;
+		width: 45%; 
+		padding-right: 10px; 
+		white-space: nowrap;
+	}
+	
+	/*
+	Label the data
+	*/
+	td:nth-of-type(1):before { content: "Team"; }
+	td:nth-of-type(2):before { content: "Summer Rank"; }
+	td:nth-of-type(3):before { content: "Summer Gold"; }
+	td:nth-of-type(4):before { content: "Summer Silver"; }
+	td:nth-of-type(5):before { content: "Summer Bronze"; }
+	td:nth-of-type(6):before { content: "Summer Total"; }
+	td:nth-of-type(7):before { content: "Winter Rank"; }
+	td:nth-of-type(8):before { content: "Winter Gold"; }
+	td:nth-of-type(9):before { content: "Winter Silver"; }
+	td:nth-of-type(10):before { content: "Winter Bronze"; }
+	td:nth-of-type(11):before { content: "Winter Total"; }
+	td:nth-of-type(12):before { content: "Overall Rank"; }
+	td:nth-of-type(13):before { content: "Total Gold"; }
+	td:nth-of-type(14):before { content: "Total Silver"; }
+	td:nth-of-type(15):before { content: "Total Bronze"; }
+	td:nth-of-type(16):before { content: "Total Medals"; }
+	
+}
